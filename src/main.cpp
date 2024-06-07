@@ -94,10 +94,11 @@ class MySecurity : public BLESecurityCallbacks {
 void notifyTask(void * parameter) {
   while (true) {
     if (deviceConnected && authenticated) {
-      pCharacteristic->setValue(&txValue, 1);
-      pCharacteristic->notify();
-      txValue++;
-      if (txValue > 255) txValue = 0;
+      // pCharacteristic->setValue(&txValue, 1);
+      // pCharacteristic->notify();
+      // Serial.println(String(txValue));
+      // txValue++;
+      // if (txValue > 254) txValue = 0;
       digitalWrite(ledPin, HIGH);
       vTaskDelay(pdMS_TO_TICKS(500));
       digitalWrite(ledPin, LOW);
